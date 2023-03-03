@@ -14,6 +14,7 @@ class _ResearchState extends State<Research> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 200, 230, 255),
       appBar: AppBar(
+        leading: const Icon(Icons.search),
         elevation: 0,
         toolbarHeight: 55,
         title: const Text(

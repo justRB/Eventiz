@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'research.dart';
+import 'pages/research.dart';
 
 void main() {
   runApp(const MyApp());
