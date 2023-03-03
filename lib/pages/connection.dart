@@ -5,6 +5,6 @@ class Connection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('page connexion');
+    return const Text('page accueil');
   }
 }
