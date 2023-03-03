@@ -6,12 +6,62 @@ final events = [
   },
   {
     'image': 'card.jpg',
-    'title': 'Venez faire la zoumba',
-    'category': 'danse',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
   },
   {
     'image': 'card.jpg',
-    'title': 'Compétition pvp minecraft',
-    'category': 'culture',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
+  },
+  {
+    'image': 'card.jpg',
+    'title': 'Expédition randonnée',
+    'category': 'sport',
   },
 ];
