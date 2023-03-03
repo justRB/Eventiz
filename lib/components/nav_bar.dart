@@ -6,16 +6,24 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 255, 238, 0),
       height: 55,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 3,
+            color: Colors.grey,
+          ),
+        ],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: const [
-          NavBarElement(description: 'rechercher', icon: Icons.search),
-          NavBarElement(description: 'carte', icon: Icons.map),
-          NavBarElement(description: 'évènements', icon: Icons.developer_board),
-          NavBarElement(description: 'chat', icon: Icons.chat_bubble_outline),
-          NavBarElement(description: 'profil', icon: Icons.person_outlined),
+          NavBarElement(description: 'Rechercher', icon: Icons.search),
+          NavBarElement(description: 'Carte', icon: Icons.map),
+          NavBarElement(description: 'Évènements', icon: Icons.developer_board),
+          NavBarElement(description: 'Chat', icon: Icons.chat_bubble_outline),
+          NavBarElement(description: 'Profil', icon: Icons.person_outlined),
         ],
       ),
     );
