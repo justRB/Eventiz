@@ -6,6 +6,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(left: 10, right: 10),
       height: 55,
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -44,7 +45,7 @@ class NavBarElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: SizedBox(
-        width: 75,
+        width: 70,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
