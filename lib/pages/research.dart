@@ -8,6 +8,7 @@ import '../components/research/research_page_card.dart';
 import '../bdd/bdd.dart';
 import '../components/departments.dart';
 import '../components/participants.dart';
+import '../components/categories.dart';
 
 class Research extends StatefulWidget {
   const Research({super.key});
@@ -71,16 +72,29 @@ class _ResearchState extends State<Research> {
                 ),
               ],
             ),
-            CheckBoxes(title: 'Les plus récents', onChanged: mostRecently),
-            ItemsList(
-              list: participants,
-              width: 35,
-              height: 200,
-            ),
-            ItemsList(
-              list: departments,
-              width: 100,
-              height: 200,
+            // CheckBoxes(title: 'Les plus récents', onChanged: mostRecently),
+            Container(
+              margin: const EdgeInsets.only(top: 25, bottom: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ItemsList(
+                    list: participants,
+                    width: 35,
+                    height: 200,
+                  ),
+                  ItemsList(
+                    list: departments,
+                    width: 100,
+                    height: 200,
+                  ),
+                  ItemsList(
+                    list: categories,
+                    width: 50,
+                    height: 200,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
