@@ -1,9 +1,13 @@
+import 'package:app/components/items_list.dart';
+import 'package:app/components/research/check_boxes.dart';
 import 'package:flutter/material.dart';
 import '../components/nav_bar.dart';
 import '../components/research/search_bar.dart';
 import '../components/top_bar.dart';
 import '../components/research/research_page_card.dart';
 import '../bdd/bdd.dart';
+import '../components/departments.dart';
+import '../components/participants.dart';
 
 class Research extends StatefulWidget {
   const Research({super.key});
@@ -13,6 +17,18 @@ class Research extends StatefulWidget {
 }
 
 class _ResearchState extends State<Research> {
+  bool isMostRecently = false;
+  bool isMostFiveInvitations = false;
+  void mostRecently(bool isChecked) {
+    isMostRecently = isChecked;
+  }
+
+  void fiveInvitations(bool isChecked) {
+    isMostFiveInvitations = isChecked;
+  }
+
+  String selectedDepartment = departments[0];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +70,17 @@ class _ResearchState extends State<Research> {
                   ),
                 ),
               ],
+            ),
+            CheckBoxes(title: 'Les plus récents', onChanged: mostRecently),
+            ItemsList(
+              list: participants,
+              width: 35,
+              height: 200,
+            ),
+            ItemsList(
+              list: departments,
+              width: 100,
+              height: 200,
             ),
           ],
         ),
