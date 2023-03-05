@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../components/nav_bar.dart';
-import '../components/search_bar.dart';
+import '../components/research/search_bar.dart';
 import '../components/top_bar.dart';
-import '../components/research_page_card.dart';
+import '../components/research/research_page_card.dart';
 import '../bdd/bdd.dart';
 
 class Research extends StatefulWidget {
@@ -22,26 +22,38 @@ class _ResearchState extends State<Research> {
         child: Column(
           children: [
             const SearchBar(),
-            Container(
-              margin: const EdgeInsets.only(top: 20, bottom: 20),
-              height: 175,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: events.length,
-                itemBuilder: (context, index) {
-                  final event = events[index];
-                  final String image = event['image'].toString();
-                  final String title = event['title'].toString();
-                  final String category = event['category'].toString();
+            Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 5, left: 15),
+                  child: Row(
+                    children: const [
+                      Text('Évènements les plus réçents'),
+                      Icon(Icons.arrow_right_alt),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 175,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: events.length,
+                    itemBuilder: (context, index) {
+                      final event = events[index];
+                      final String image = event['image'].toString();
+                      final String title = event['title'].toString();
+                      final String category = event['category'].toString();
 
-                  return ResearchPageCard(
-                    image: image,
-                    title: title,
-                    category: category,
-                    colorCategory: Colors.blue,
-                  );
-                },
-              ),
+                      return ResearchPageCard(
+                        image: image,
+                        title: title,
+                        category: category,
+                        colorCategory: Colors.blue,
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),
