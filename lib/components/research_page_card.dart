@@ -17,23 +17,19 @@ class ResearchPageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double cardWidth = 175;
     double cardHeight = 175;
+    double radius = 8;
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 10),
       width: cardWidth,
       height: cardHeight,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border(
-          bottom: BorderSide(
-            color: colorCategory,
-            width: 3,
-          ),
-        ),
+        borderRadius: BorderRadius.circular(8),
         boxShadow: const [
           BoxShadow(
             color: Color.fromARGB(255, 181, 204, 223),
-            blurRadius: 5,
-            offset: Offset(2, 0),
+            blurRadius: 8,
+            offset: Offset(4, 0),
           ),
         ],
       ),
@@ -41,10 +37,10 @@ class ResearchPageCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.only(
-                // topLeft: Radius.circular(0),
-                // topRight: Radius.circular(0),
-                ),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(radius),
+              topRight: Radius.circular(radius),
+            ),
             child: Image.asset(
               'assets/images/$image',
               width: cardWidth,
@@ -76,6 +72,17 @@ class ResearchPageCard extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: colorCategory,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(radius),
+                bottomRight: Radius.circular(radius),
+              ),
+            ),
+            height: 4,
+            width: double.infinity,
           ),
         ],
       ),
