@@ -4,24 +4,26 @@ class ResearchPageCard extends StatelessWidget {
   final String image;
   final String title;
   final String category;
+  final double width;
+  final double height;
   final Color colorCategory;
 
   const ResearchPageCard(
       {required this.image,
       required this.title,
       required this.category,
+      required this.width,
+      required this.height,
       required this.colorCategory,
       super.key});
 
   @override
   Widget build(BuildContext context) {
-    double cardWidth = 175;
-    double cardHeight = 175;
     double radius = 8;
     return Container(
       margin: const EdgeInsets.only(left: 10, right: 10),
-      width: cardWidth,
-      height: cardHeight,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -43,14 +45,19 @@ class ResearchPageCard extends StatelessWidget {
             ),
             child: Image.asset(
               'assets/images/$image',
-              width: cardWidth,
+              width: width,
             ),
           ),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 12,
-              fontStyle: FontStyle.italic,
+          Container(
+            margin: const EdgeInsets.only(left: 5, right: 5),
+            child: Text(
+              title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: const TextStyle(
+                fontSize: 12,
+                fontStyle: FontStyle.italic,
+              ),
             ),
           ),
           Row(

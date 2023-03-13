@@ -40,6 +40,7 @@ class _ItemsListState extends State<ItemsList> {
         ],
       ),
       child: DropdownButton<String>(
+        underline: const SizedBox(),
         value: itemSelected,
         onChanged: (String? newValue) {
           setState(() {

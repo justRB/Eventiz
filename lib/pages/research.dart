@@ -1,5 +1,4 @@
 import 'package:app/components/items_list.dart';
-import 'package:app/components/research/check_boxes.dart';
 import 'package:flutter/material.dart';
 import '../components/nav_bar.dart';
 import '../components/research/search_bar.dart';
@@ -18,18 +17,6 @@ class Research extends StatefulWidget {
 }
 
 class _ResearchState extends State<Research> {
-  bool isMostRecently = false;
-  bool isMostFiveInvitations = false;
-  void mostRecently(bool isChecked) {
-    isMostRecently = isChecked;
-  }
-
-  void fiveInvitations(bool isChecked) {
-    isMostFiveInvitations = isChecked;
-  }
-
-  String selectedDepartment = departments[0];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +38,7 @@ class _ResearchState extends State<Research> {
                   ),
                 ),
                 SizedBox(
-                  height: 175,
+                  height: MediaQuery.of(context).size.width / 2.5,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: events.length,
@@ -65,6 +52,8 @@ class _ResearchState extends State<Research> {
                         image: image,
                         title: title,
                         category: category,
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.width / 2.5,
                         colorCategory: Colors.blue,
                       );
                     },
@@ -72,7 +61,6 @@ class _ResearchState extends State<Research> {
                 ),
               ],
             ),
-            // CheckBoxes(title: 'Les plus récents', onChanged: mostRecently),
             Container(
               margin: const EdgeInsets.only(top: 25, bottom: 25),
               child: Row(
