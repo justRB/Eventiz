@@ -26,40 +26,43 @@ class _ResearchState extends State<Research> {
         child: Column(
           children: [
             const SearchBar(),
-            Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(bottom: 5, left: 15),
-                  child: Row(
-                    children: const [
-                      Text('Évènements les plus réçents'),
-                      Icon(Icons.arrow_right_alt),
-                    ],
+            Container(
+              // margin: const EdgeInsets.only(left: 15),
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 5, left: 15),
+                    child: Row(
+                      children: const [
+                        Text('Évènements les plus réçents'),
+                        Icon(Icons.arrow_right_alt),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width / 2.5,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: events.length,
-                    itemBuilder: (context, index) {
-                      final event = events[index];
-                      final String image = event['image'].toString();
-                      final String title = event['title'].toString();
-                      final String category = event['category'].toString();
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width / 2.5,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: events.length,
+                      itemBuilder: (context, index) {
+                        final event = events[index];
+                        final String image = event['image'].toString();
+                        final String title = event['title'].toString();
+                        final String category = event['category'].toString();
 
-                      return ResearchPageCard(
-                        image: image,
-                        title: title,
-                        category: category,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        height: MediaQuery.of(context).size.width / 2.5,
-                        colorCategory: Colors.blue,
-                      );
-                    },
+                        return ResearchPageCard(
+                          image: image,
+                          title: title,
+                          category: category,
+                          width: MediaQuery.of(context).size.width / 2.5,
+                          height: MediaQuery.of(context).size.width / 2.5,
+                          colorCategory: Colors.blue,
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 25, bottom: 25),
@@ -82,6 +85,34 @@ class _ResearchState extends State<Research> {
                     height: 200,
                   ),
                 ],
+              ),
+            ),
+            SizedBox(
+              height: 244,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                  spacing: 0.0,
+                  runSpacing: 20.0,
+                  children: List.generate(
+                    events.length,
+                    (index) {
+                      final event = events[index];
+                      final String image = event['image'].toString();
+                      final String title = event['title'].toString();
+                      final String category = event['category'].toString();
+
+                      return ResearchPageCard(
+                        image: image,
+                        title: title,
+                        category: category,
+                        width: MediaQuery.of(context).size.width / 2.5,
+                        height: MediaQuery.of(context).size.width / 2.5,
+                        colorCategory: Colors.blue,
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
           ],
