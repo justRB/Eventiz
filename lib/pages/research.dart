@@ -26,8 +26,7 @@ class _ResearchState extends State<Research> {
         child: Column(
           children: [
             const SearchBar(),
-            Container(
-              // margin: const EdgeInsets.only(left: 15),
+            SizedBox(
               child: Column(
                 children: [
                   Container(
@@ -88,7 +87,7 @@ class _ResearchState extends State<Research> {
               ),
             ),
             SizedBox(
-              height: 244,
+              height: MediaQuery.of(context).size.width / 1.61,
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Wrap(
