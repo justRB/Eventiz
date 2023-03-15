@@ -17,6 +17,12 @@ class Research extends StatefulWidget {
 }
 
 class _ResearchState extends State<Research> {
+  void participantNumber(value) {}
+
+  void department(value) {}
+
+  void categorie(value) {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,23 +77,25 @@ class _ResearchState extends State<Research> {
                   ItemsList(
                     list: participants,
                     width: 35,
-                    height: 200,
+                    height: 50,
+                    function: participantNumber,
                   ),
                   ItemsList(
                     list: departments,
                     width: 100,
-                    height: 200,
+                    height: 50,
+                    function: department,
                   ),
                   ItemsList(
                     list: categories,
                     width: 50,
-                    height: 200,
+                    height: 50,
+                    function: categorie,
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.width / 1.61,
+            Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Wrap(

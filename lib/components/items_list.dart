@@ -9,8 +9,11 @@ class ItemsList extends StatefulWidget {
     required this.list,
     required this.width,
     required this.height,
+    required this.function,
     super.key,
   });
+
+  final Function(dynamic) function;
 
   @override
   State<ItemsList> createState() => _ItemsListState();
@@ -45,6 +48,7 @@ class _ItemsListState extends State<ItemsList> {
         onChanged: (String? newValue) {
           setState(() {
             itemSelected = newValue!;
+            widget.function(itemSelected);
           });
         },
         items: widget.list.map<DropdownMenuItem<String>>((String value) {
@@ -59,7 +63,7 @@ class _ItemsListState extends State<ItemsList> {
             ),
           );
         }).toList(),
-        menuMaxHeight: widget.height,
+        itemHeight: widget.height,
       ),
     );
   }

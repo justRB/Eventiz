@@ -19,7 +19,8 @@ class _CheckBoxesState extends State<CheckBoxes> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Colors.blue,
+      width: 200,
       child: Row(
         children: [
           Checkbox(
