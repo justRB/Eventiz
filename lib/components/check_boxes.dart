@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class CheckBoxes extends StatefulWidget {
   final String title;
+  final double width;
+  final double verticalPadding;
   final Function(bool) onChanged;
 
   const CheckBoxes({
     required this.title,
+    required this.width,
+    required this.verticalPadding,
     required this.onChanged,
     super.key,
   });
@@ -19,11 +23,14 @@ class _CheckBoxesState extends State<CheckBoxes> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
-      width: 200,
+      width: widget.width,
+      margin: EdgeInsets.symmetric(vertical: widget.verticalPadding),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Checkbox(
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            activeColor: const Color.fromARGB(255, 132, 181, 255),
             value: isChecked,
             onChanged: (value) {
               setState(() {

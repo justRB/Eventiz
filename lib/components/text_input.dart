@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class TextInput extends StatefulWidget {
   final String placeholder;
   final double width;
+  final double verticalPadding;
   const TextInput({
     required this.placeholder,
     required this.width,
+    required this.verticalPadding,
     super.key,
   });
 
@@ -18,6 +20,7 @@ class _TextInputState extends State<TextInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: widget.verticalPadding),
       width: widget.width,
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -57,18 +60,3 @@ class _TextInputState extends State<TextInput> {
     );
   }
 }
-
-// TextFormField(
-//   controller: _controller,
-//   decoration: InputDecoration(
-//     labelText: 'Nom',
-//     hintText: 'Entrez votre nom',
-//     border: OutlineInputBorder(),
-//   ),
-//   validator: (value) {
-//     if (value.isEmpty) {
-//       return 'Veuillez entrer votre nom';
-//     }
-//     return null;
-//   },
-// );
