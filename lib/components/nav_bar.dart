@@ -1,3 +1,4 @@
+import 'package:app/pages/profil.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
@@ -20,11 +21,31 @@ class NavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: const [
-          NavBarElement(description: 'Rechercher', icon: Icons.search),
-          NavBarElement(description: 'Carte', icon: Icons.map),
-          NavBarElement(description: 'Évènements', icon: Icons.developer_board),
-          NavBarElement(description: 'Chat', icon: Icons.chat_bubble_outline),
-          NavBarElement(description: 'Profil', icon: Icons.person_outlined),
+          NavBarElement(
+            description: 'Rechercher',
+            icon: Icons.search,
+            page: Profil(),
+          ),
+          NavBarElement(
+            description: 'Carte',
+            icon: Icons.map,
+            page: Profil(),
+          ),
+          NavBarElement(
+            description: 'Évènements',
+            icon: Icons.developer_board,
+            page: Profil(),
+          ),
+          NavBarElement(
+            description: 'Chat',
+            icon: Icons.chat_bubble_outline,
+            page: Profil(),
+          ),
+          NavBarElement(
+            description: 'Profil',
+            icon: Icons.person_outlined,
+            page: Profil(),
+          ),
         ],
       ),
     );
@@ -34,10 +55,12 @@ class NavBar extends StatelessWidget {
 class NavBarElement extends StatelessWidget {
   final String description;
   final IconData icon;
+  final Widget page;
 
   const NavBarElement({
     required this.description,
     required this.icon,
+    required this.page,
     super.key,
   });
 
@@ -60,7 +83,10 @@ class NavBarElement extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context)
+            .push(PageRouteBuilder(pageBuilder: (_, __, ___) => page));
+      },
     );
   }
 }
