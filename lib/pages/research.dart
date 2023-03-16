@@ -26,7 +26,6 @@ class _ResearchState extends State<Research> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: const TopBar(title: 'Trouver votre évènement'),
       body: Center(
         child: Column(
