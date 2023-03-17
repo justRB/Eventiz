@@ -14,7 +14,7 @@ class Connection extends StatelessWidget {
     void keepConnected(value) {}
 
     return Scaffold(
-      appBar: const TopBar(title: 'Connexion à votre compte'),
+      appBar: const TopBar(title: 'Connexion à un compte'),
       body: Center(
         child: Stack(
           alignment: Alignment.center,
@@ -22,19 +22,19 @@ class Connection extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const TextInput(
-                  placeholder: "Nom d'utilisateur",
-                  width: 150,
+                TextInput(
+                  placeholder: "Adresse mail",
+                  width: MediaQuery.of(context).size.width / 2.5,
                   verticalPadding: 5,
                 ),
-                const TextInput(
+                TextInput(
                   placeholder: "Mot de passe",
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 2.5,
                   verticalPadding: 5,
                 ),
                 CheckBoxes(
                   title: 'Rester connecté',
-                  width: 150,
+                  width: MediaQuery.of(context).size.width / 2.5,
                   verticalPadding: 5,
                   onChanged: keepConnected,
                 ),

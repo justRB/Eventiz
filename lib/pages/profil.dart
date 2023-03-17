@@ -84,20 +84,16 @@ class _ProfilState extends State<Profil> {
           const SizedBox(height: 20),
           Container(
             color: Colors.blue,
-            child: Column(
-              children: [
-                Text(
-                  'Information Supplémantaire'
-                )
-                Column(children: const [
+            child: Column(children: [
+              Text('Information Supplémantaire'),
+              Column(
+                children: const [
                   Text(
                     'Nombre d\'événements créés',
                   )
-                ],)
-
-              ]
-            ),
-
+                ],
+              )
+            ]),
           ),
         ],
       ),
