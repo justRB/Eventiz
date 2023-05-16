@@ -1,4 +1,6 @@
+import 'package:app/pages/create_event.dart';
 import 'package:app/pages/profil.dart';
+import 'package:app/pages/research.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
@@ -24,22 +26,22 @@ class NavBar extends StatelessWidget {
           NavBarElement(
             description: 'Rechercher',
             icon: Icons.search,
-            page: ProfilePage(),
+            page: Research(),
           ),
           NavBarElement(
             description: 'Carte',
             icon: Icons.map,
-            page: ProfilePage(),
+            page: Placeholder(),
           ),
           NavBarElement(
             description: 'Évènements',
             icon: Icons.developer_board,
-            page: ProfilePage(),
+            page: CreateEvent(),
           ),
           NavBarElement(
             description: 'Chat',
             icon: Icons.chat_bubble_outline,
-            page: ProfilePage(),
+            page: Placeholder(),
           ),
           NavBarElement(
             description: 'Profil',

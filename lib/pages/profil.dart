@@ -1,8 +1,7 @@
-
+import 'package:app/pages/connection.dart';
 import 'package:flutter/material.dart';
 import '../components/nav_bar.dart';
 import '../components/top_bar.dart';
-
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -14,27 +13,26 @@ class ProfilePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CircleAvatar(
-              radius: 80,
-              backgroundImage: AssetImage('assets/avatar.png'), // Remplacez par le chemin de votre image d'avatar
-            ),
-            SizedBox(height: 16),
-            Text(
-              'John Doe',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 8),
-            Text(
-              'john.doe@example.com',
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
-        ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              CircleAvatar(
+                radius: 64,
+                //backgroundImage: AssetImage('assets/avatar.png'), // Remplacez par le chemin de votre image d'avatar
+              ),
+              SizedBox(height: 16),
+              Text(
+                'John Doe',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'john.doe@example.com',
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
           // Partie Informations
           Card(
             child: ListTile(
@@ -70,6 +68,9 @@ class ProfilePage extends StatelessWidget {
           ),
           // Bouton Suppression de compte
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 96, 160, 255),
+            ),
             child: const Text('Supprimer le compte'),
             onPressed: () {
               // Afficher une boîte de dialogue de confirmation
@@ -78,12 +79,14 @@ class ProfilePage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text('Confirmation'),
-                    content: const Text('Voulez-vous vraiment supprimer votre compte ?'),
+                    content: const Text(
+                        'Voulez-vous vraiment supprimer votre compte ?'),
                     actions: [
                       TextButton(
                         child: const Text('Annuler'),
                         onPressed: () {
-                          Navigator.of(context).pop(); // Fermer la boîte de dialogue
+                          Navigator.of(context)
+                              .pop(); // Fermer la boîte de dialogue
                         },
                       ),
                       TextButton(
@@ -91,7 +94,8 @@ class ProfilePage extends StatelessWidget {
                         onPressed: () {
                           // Effectuer l'action de suppression du compte
                           // ...
-                          Navigator.of(context).pop(); // Fermer la boîte de dialogue
+                          Navigator.of(context)
+                              .pop(); // Fermer la boîte de dialogue
                         },
                       ),
                     ],
@@ -100,10 +104,19 @@ class ProfilePage extends StatelessWidget {
               );
             },
           ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(PageRouteBuilder(
+                  pageBuilder: (_, __, ___) => const Connection()));
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 96, 160, 255),
+            ),
+            child: const Text('Déconnexion'),
+          ),
         ],
       ),
       bottomNavigationBar: const NavBar(),
     );
   }
-  
 }
