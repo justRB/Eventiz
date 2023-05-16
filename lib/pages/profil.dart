@@ -1,103 +1,109 @@
-import 'package:app/components/nav_bar.dart';
-import 'package:app/components/top_bar.dart';
+
 import 'package:flutter/material.dart';
+import '../components/nav_bar.dart';
+import '../components/top_bar.dart';
 
-class Profil extends StatefulWidget {
-  const Profil({super.key});
 
-  @override
-  State<Profil> createState() => _ProfilState();
-}
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
-class _ProfilState extends State<Profil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TopBar(title: 'Profile'),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      appBar: const TopBar(title: 'Profil'),
+      body: ListView(
+        padding: const EdgeInsets.all(16.0),
         children: [
-          const SizedBox(height: 20),
-          const CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage('assets/profile_picture.png'),
-          ),
-          const SizedBox(height: 20),
-          const Text(
-            'John Doe',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CircleAvatar(
+              radius: 80,
+              backgroundImage: AssetImage('assets/avatar.png'), // Remplacez par le chemin de votre image d'avatar
+            ),
+            SizedBox(height: 16),
+            Text(
+              'John Doe',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 8),
+            Text(
+              'john.doe@example.com',
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ),
+          // Partie Informations
+          Card(
+            child: ListTile(
+              title: const Text('Informations'),
+              subtitle: const Text('Modifier vos informations personnelles'),
+              trailing: const Icon(Icons.arrow_forward),
+              onTap: () {
+                // Naviguer vers la page de modification des informations
+              },
             ),
           ),
-          const SizedBox(height: 10),
-          const Text(
-            'Compte crée en 2019',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
+          // Partie Sécurité et confidentialité
+          Card(
+            child: ListTile(
+              title: const Text('Sécurité et confidentialité'),
+              subtitle: const Text('Gérer vos paramètres de sécurité'),
+              trailing: const Icon(Icons.arrow_forward),
+              onTap: () {
+                // Naviguer vers la page de gestion de sécurité et confidentialité
+              },
             ),
           ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: const [
-                  Text(
-                    '100',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Événements Crées',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: const [
-                  Text(
-                    '200',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Événements Participés',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+          // Partie Paramètres
+          Card(
+            child: ListTile(
+              title: const Text('Paramètres'),
+              subtitle: const Text('Configurer vos préférences'),
+              trailing: const Icon(Icons.arrow_forward),
+              onTap: () {
+                // Naviguer vers la page des paramètres
+              },
+            ),
           ),
-          const SizedBox(height: 20),
-          Container(
-            color: Colors.blue,
-            child: Column(children: [
-              Text('Information Supplémantaire'),
-              Column(
-                children: const [
-                  Text(
-                    'Nombre d\'événements créés',
-                  )
-                ],
-              )
-            ]),
+          // Bouton Suppression de compte
+          ElevatedButton(
+            child: const Text('Supprimer le compte'),
+            onPressed: () {
+              // Afficher une boîte de dialogue de confirmation
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Confirmation'),
+                    content: const Text('Voulez-vous vraiment supprimer votre compte ?'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Annuler'),
+                        onPressed: () {
+                          Navigator.of(context).pop(); // Fermer la boîte de dialogue
+                        },
+                      ),
+                      TextButton(
+                        child: const Text('Supprimer'),
+                        onPressed: () {
+                          // Effectuer l'action de suppression du compte
+                          // ...
+                          Navigator.of(context).pop(); // Fermer la boîte de dialogue
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
           ),
         ],
       ),
       bottomNavigationBar: const NavBar(),
     );
   }
+  
 }
