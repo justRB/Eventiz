@@ -24,12 +24,12 @@ class Connection extends StatelessWidget {
               children: [
                 TextInput(
                   placeholder: "Adresse mail",
-                  width: MediaQuery.of(context).size.width / 2.5,
+                  width: MediaQuery.of(context).size.width / 2,
                   verticalPadding: 5,
                 ),
                 TextInput(
                   placeholder: "Mot de passe",
-                  width: MediaQuery.of(context).size.width / 2.5,
+                  width: MediaQuery.of(context).size.width / 2,
                   verticalPadding: 5,
                 ),
                 CheckBoxes(

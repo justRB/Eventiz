@@ -68,7 +68,7 @@ class NavBarElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: SizedBox(
-        width: 70,
+        width: 60,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -77,7 +77,7 @@ class NavBarElement extends StatelessWidget {
               description,
               style: const TextStyle(
                 color: Colors.black,
-                fontSize: 12,
+                fontSize: 10,
               ),
             ),
           ],
