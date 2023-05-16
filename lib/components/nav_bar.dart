@@ -24,27 +24,27 @@ class NavBar extends StatelessWidget {
           NavBarElement(
             description: 'Rechercher',
             icon: Icons.search,
-            page: Profil(),
+            page: ProfilePage(),
           ),
           NavBarElement(
             description: 'Carte',
             icon: Icons.map,
-            page: Profil(),
+            page: ProfilePage(),
           ),
           NavBarElement(
             description: 'Évènements',
             icon: Icons.developer_board,
-            page: Profil(),
+            page: ProfilePage(),
           ),
           NavBarElement(
             description: 'Chat',
             icon: Icons.chat_bubble_outline,
-            page: Profil(),
+            page: ProfilePage(),
           ),
           NavBarElement(
             description: 'Profil',
             icon: Icons.person_outlined,
-            page: Profil(),
+            page: ProfilePage(),
           ),
         ],
       ),
